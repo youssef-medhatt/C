@@ -10,6 +10,8 @@ printf("\n\n\n\n\n\n\n\n");
 printf("1.NEW* \n");
 printf("2.DISPLAY \n");
 printf("3.EXIT \n");
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
+
 }
 void Display(){
 printf("\n\n\n\n\n\n\n\n");
@@ -17,6 +19,8 @@ printf("\n\n\n\n\n\n\n\n");
 printf("1.NEW \n");
 printf("2.DISPLAY* \n");
 printf("3.EXIT\n");
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
+
 }
 void Exit(){
 printf("\n\n\n\n\n\n\n\n");
@@ -24,6 +28,8 @@ printf("\n\n\n\n\n\n\n\n");
 printf("1.NEW \n");
 printf("2.DISPLAY \n");
 printf("3.EXIT* \n");
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
+
 }
 void NewPressed(){
 printf("\n\n\n\n\n\n\n\n");
@@ -50,10 +56,11 @@ int main()
 
 int Option = 1;
 char ch = 0;
-        printf("Choose an item: \n");
-        printf("1.NEW \n");
+
+        printf("1.NEW* \n");
         printf("2.DISPLAY \n");
         printf("3.EXIT \n");
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
     while(ch != 27){
         ch = getch();
             if(ch == -32){
