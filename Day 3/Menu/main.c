@@ -1,50 +1,81 @@
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <windows.h>
+#include <dos.h>
+#include <dir.h>
+#include <dos.h>
+#include <dir.h>
 #define UP 72
 #define ENTER 13
 #define DOWN 80
+void SetColor(int ForgC){
+     WORD wColor;
+
+      HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+      CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+                       //We use csbi for the wAttributes word.
+     if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
+     {
+                 //Mask out all but the background attribute, and add in the forgournd     color
+          wColor = (csbi.wAttributes & 0xF0) + (ForgC & 0x0F);
+          SetConsoleTextAttribute(hStdOut, wColor);
+     }
+     return;
+ }
+
+
 void New(){
-printf("\n\n\n\n\n\n\n\n");
-printf("1.NEW* \n");
+system("cls");
+SetColor(1);
+printf("1.NEW \n");
+SetColor(7);
+
 printf("2.DISPLAY \n");
 printf("3.EXIT \n");
         printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
 
 }
 void Display(){
-printf("\n\n\n\n\n\n\n\n");
+system("cls");
 
 printf("1.NEW \n");
-printf("2.DISPLAY* \n");
+SetColor(1);
+
+printf("2.DISPLAY \n");
+SetColor(7);
+
 printf("3.EXIT\n");
         printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
 
 }
 void Exit(){
-printf("\n\n\n\n\n\n\n\n");
-
+system("cls");
 printf("1.NEW \n");
 printf("2.DISPLAY \n");
-printf("3.EXIT* \n");
+SetColor(1);
+
+printf("3.EXIT \n");
+SetColor(7);
+
         printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
 
 }
 void NewPressed(){
-printf("\n\n\n\n\n\n\n\n");
+system("cls");
 printf("1.NEW PRESSED \n");
 
 }
 void DisplayPressed(){
-printf("\n\n\n\n\n\n\n\n");
+system("cls");
 
 
 printf("2.DISPLAY PRESSED\n");
 
 }
 void ExitPressed(){
-printf("\n\n\n\n\n\n\n\n");
+system("cls");
 
 
 printf("3.EXIT PRESSED \n");
@@ -57,7 +88,7 @@ int main()
 int Option = 1;
 char ch = 0;
 
-        printf("1.NEW* \n");
+        printf("1.NEW \n");
         printf("2.DISPLAY \n");
         printf("3.EXIT \n");
         printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
