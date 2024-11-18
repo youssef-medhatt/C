@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1731849317 source:d:\open source\c\day2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1731849880 source:d:\open source\c\day2\q2.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
