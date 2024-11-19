@@ -5,8 +5,8 @@
 #include <windows.h>
 void gotoxy1(int x,int y){
 COORD coord;
-coord.X = y+3;
-coord.Y = x+3;
+coord.X = y+30;
+coord.Y = x+10;
 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
 int main()
@@ -26,7 +26,7 @@ int x = scanf("%d",&N);
     oddNumber = 1;
   }
   else{
-    printf("NOT AN ODD NUMBER!");
+    printf("NOT AN ODD NUMBER! \n");
   }
   }
 

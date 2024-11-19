@@ -8,7 +8,20 @@
 #include <dir.h>
 #define UP 72
 #define ENTER 13
+#define ESC 27
 #define DOWN 80
+#define BACKSPACE 8
+#define NEW 1
+#define DISPLAY 2
+#define EXIT 3
+#define ROW 5
+#define COL 50
+void gotoxy1(int x,int y){
+COORD coord;
+coord.X = y;
+coord.Y = x;
+SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
 void SetColor(int ForgC){
      WORD wColor;
 
@@ -29,37 +42,48 @@ void SetColor(int ForgC){
 void New(){
 system("cls");
 SetColor(1);
+gotoxy1(ROW,COL);
 printf("1.NEW \n");
 SetColor(7);
-
+gotoxy1(ROW+10,COL);
 printf("2.DISPLAY \n");
+gotoxy1(ROW+20,COL);
 printf("3.EXIT \n");
-        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
+gotoxy1(ROW+25,COL-28);
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE OR ESC TO EXIT");
 
 }
 void Display(){
 system("cls");
-
+gotoxy1(ROW,COL);
 printf("1.NEW \n");
 SetColor(1);
+gotoxy1(ROW+10,COL);
 
 printf("2.DISPLAY \n");
 SetColor(7);
+gotoxy1(ROW+20,COL);
 
 printf("3.EXIT\n");
-        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
+gotoxy1(ROW+25,COL-28);
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE OR ESC TO EXIT");
 
 }
 void Exit(){
 system("cls");
+gotoxy1(ROW,COL);
+
 printf("1.NEW \n");
+gotoxy1(ROW+10,COL);
+
 printf("2.DISPLAY \n");
 SetColor(1);
+gotoxy1(ROW+20,COL);
 
 printf("3.EXIT \n");
 SetColor(7);
-
-        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
+gotoxy1(ROW+25,COL-28);
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE OR ESC TO EXIT");
 
 }
 void NewPressed(){
@@ -85,68 +109,76 @@ int main()
 
 
 
-int Option = 1;
+int Option = NEW;
 char ch = 0;
-
+gotoxy1(ROW,COL);
         printf("1.NEW \n");
+        gotoxy1(ROW+10,COL);
         printf("2.DISPLAY \n");
+        gotoxy1(ROW+20,COL);
         printf("3.EXIT \n");
-        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE\n OR ESC TO EXIT");
-    while(ch != 27){
+        gotoxy1(ROW+25,COL-28);
+        printf("NAVIGATE USING UP-ARW AND DOWN-ARW AND ENTER TO CHOOSE OR ESC TO EXIT");
+    while(ch != ESC ){
         ch = getch();
             if(ch == -32){
                 ch = getch();
                         }
+    if(ch == UP ||  ch == DOWN || ch == BACKSPACE){
                         if(ch == UP){
-                                if(Option == 1){
-                                    Option = 3;
+                                if(Option == NEW){
+                                    Option = EXIT;
                                 }
                                 else{
                             Option--;
                                 }
                         }
                         else if(ch == DOWN){
-                            if(Option == 3){
-                                Option = 1;
+                            if(Option == EXIT){
+                                Option = NEW;
                             }
                             else{
                                 Option++;
                             }
                         }
-                        else if(ch == ENTER){
-                                    switch(Option){
-                                        case 1:
-                                            NewPressed();
-                                            break;
-                                        case 2:
-                                            DisplayPressed();
-                                            break;
-                                        case 3:
-                                            ExitPressed();
-                                            break;
-                                        default:
-                                            printf("INVALID!");
+                            switch(Option){
+                                    case NEW:
+                                        New();
+                                        break;
+                                    case DISPLAY:
+                                        Display();
+                                        break;
+                                    case EXIT:
+                                        Exit();
+                                        break;
+                                    default:
+                                        printf("INVALID!");
 
         }
-                        break;
+    }
+                         if(ch == ENTER){
+                                    switch(Option){
+                                        case NEW:
+                                            NewPressed();
+                                                    printf("ENTER BACKSPACE TO GO BACK OR ESC TO EXIT");
+
+                                            break;
+                                        case DISPLAY:
+                                            DisplayPressed();
+                                                    printf("ENTER BACKSPACE TO GO BACK OR ESC TO EXIT");
+
+                                            break;
+                                        case EXIT:
+                                            ch = ESC;
+                                            break;
+
+        }
+
                         }
                         else{
                             continue;
                         }
-        switch(Option){
-    case 1:
-        New();
-        break;
-    case 2:
-        Display();
-        break;
-    case 3:
-        Exit();
-        break;
-    default:
-        printf("INVALID!");
 
-        }
 
     }
 
