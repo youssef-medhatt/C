@@ -98,12 +98,7 @@ system("cls");
 printf("2.DISPLAY PRESSED\n");
 
 }
-void ExitPressed(){
-system("cls");
 
-
-printf("3.EXIT PRESSED \n");
-}
 int main()
 {
 
@@ -175,9 +170,7 @@ gotoxy1(ROW,COL);
         }
 
                         }
-                        else{
-                            continue;
-                        }
+
 
 
     }
