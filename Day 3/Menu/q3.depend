@@ -5,7 +5,7 @@
 	<time.h>
 	<windows.h>
 
-1732016249 source:d:\open source\c\day 3\menu\main.c
+1732127995 source:d:\open source\c\day 3\menu\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -13,4 +13,9 @@
 	<dir.h>
 	<dos.h>
 	<dir.h>
+	"youssef_string.h"
+
+1732125967 source:d:\open source\c\day 3\menu\youssef_string.c
+
+1732125596 d:\open source\c\day 3\menu\youssef_string.h
 

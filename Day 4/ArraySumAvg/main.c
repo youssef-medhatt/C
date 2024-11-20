@@ -14,20 +14,21 @@ int main()
             printf("Enter element [%d][%d]: ",i,j);
             fflush(stdin);
             inputFlag = scanf("%d",&arr[i][j]);
+            if(inputFlag != 1) printf("PLease enter a valid number! \n");
             }
         }
     }
 
 
     for(int i = 0;i<ROW;i++){
-            int sumOfRow;
+            int sumOfRow=0;
         for(int j = 0;j<COL;j++){
             sumOfRow+= arr[i][j];
         }
         printf("Sum of Row %d = %d\n",i,sumOfRow);
     }
      for(int j = 0;j<COL;j++){
-            float avgOfCol;
+            float avgOfCol=0;
         for(int i = 0;i<ROW;i++){
             avgOfCol+= arr[i][j];
         }
